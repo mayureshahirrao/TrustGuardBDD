@@ -1,4 +1,4 @@
-# Auth API — Behave BDD Test Framework
+#TrustGuardBDD — Behave BDD Test Framework
 
 A comprehensive Behave BDD (Behaviour-Driven Development) automation framework for testing
 an authentication REST API. Covers signup, OTP verification, OTP resend, login,
@@ -42,7 +42,7 @@ auth-api-bdd/
 
 ```bash
 # 1. Clone / copy the project
-cd auth-api-bdd
+cd TrustGuardBDD
 
 # 2. Create and activate a virtual environment (recommended)
 python -m venv venv
@@ -92,6 +92,25 @@ behave --name="TC-S01"
 
 # Dry run (validate feature files without executing)
 behave --dry-run
+
+# Allure report (if you have Allure installed)
+behave -f allure_behave.formatter:AllureFormatter -o Allure-Reports/   
+
+# To generate the Allure report after running:
+allure serve Allure-Reports/
+
+# Run with parallel execution (requires 'behave-parallel' package)
+behave -f allure_behave.formatter:AllureFormatter -o Allure-Reports/ -j 4
+
+# Run with custom environment variable (e.g., override BASE_URL)
+BASE_URL=http://staging.api.trustguard.com behave
+
+# Run with custom tags (e.g., smoke tests that are not security-related)
+behave --tags="@smoke and not @security"
+
+# Run with a specific formatter (e.g., JSON)
+behave -f json -o report.json
+
 ```
 
 ## Tags
