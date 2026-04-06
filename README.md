@@ -7,7 +7,7 @@ forgot password, password reset, security, and full end-to-end user journeys.
 ## Project Structure
 
 ```
-auth-api-bdd/
+TrustGuardBDD/
 ├── behave.ini                  # Behave configuration and tags
 ├── requirements.txt            # Python dependencies
 ├── .env.example                # Environment variable template
@@ -110,7 +110,6 @@ behave --tags="@smoke and not @security"
 
 # Run with a specific formatter (e.g., JSON)
 behave -f json -o report.json
-
 ```
 
 ## Tags
